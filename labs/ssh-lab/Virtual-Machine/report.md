@@ -11,7 +11,7 @@ Configure a Debian virtual machine to allow secure remote access via SSH from th
 Step-by-Step
 Step 1 – Network Configuration (Bridged Adapter)
 
-! Image: Step.1.png (https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/d2f5533b025d2a78a75168c2ce3b2689b586735a/labs/ssh-lab/prints/Passo.1.png)
+![Image: Step.1.png] (https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/d2f5533b025d2a78a75168c2ce3b2689b586735a/labs/ssh-lab/prints/Passo.1.png)
 
 In the Oracle VirtualBox Manager, I accessed the settings of the VM "DB".
 Under Network → Adapter 1, I configured:
