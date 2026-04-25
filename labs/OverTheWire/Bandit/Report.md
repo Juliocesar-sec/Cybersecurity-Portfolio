@@ -230,9 +230,6 @@ strings data.txt | grep "="
 
 ## 🔐 Level 10 → 11
 
-
-![Level 10 → 11](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
-
 ### Objetivo
 
 Decodificar conteúdo em Base64 presente no arquivo `data.txt`.
@@ -251,6 +248,10 @@ base64 -d data.txt
 ---
 
 ## 🔐 Level 11 → 12
+
+
+![Level 10 → 11](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
+
 
 ### Objetivo
 
