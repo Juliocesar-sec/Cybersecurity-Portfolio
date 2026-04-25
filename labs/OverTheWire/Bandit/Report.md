@@ -20,6 +20,8 @@ Este documento registra a resolução progressiva dos níveis iniciais do wargam
 
 ## 🔐 Level 0 → 1
 
+![Level 0 → 1](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_0.png)
+
 ### Objetivo
 
 Conectar via SSH ao servidor do jogo.
@@ -227,6 +229,9 @@ strings data.txt | grep "="
 ---
 
 ## 🔐 Level 10 → 11
+
+
+![Level 10 → 11](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
 
 ### Objetivo
 
