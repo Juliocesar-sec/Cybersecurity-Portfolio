@@ -126,6 +126,8 @@ cat <arquivo_ASCII>
 
 ## 📏 Level 5 → 6
 
+![Level 5 → 6](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/44f9d7dbc4c156b15354373ebdab9b65bc2890d8/labs/OverTheWire/Bandit/Screenshot/Screenshot_5.png)
+
 ### Objetivo
 
 Arquivo com:
