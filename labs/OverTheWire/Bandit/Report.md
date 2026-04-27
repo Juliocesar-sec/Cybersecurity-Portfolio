@@ -290,7 +290,7 @@ base64 -d data.txt
 ## 🔐 Level 11 → 12
 
 
-![Level 10 → 11](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
+![Level 11 → 12](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
 
 
 ### Objetivo
@@ -310,6 +310,8 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ---
 
 ## 🔐 Level 12 → 13
+
+![Level 12 → 13](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_12.png)
 
 ### Objetivo
 
@@ -366,9 +368,13 @@ Permissões de arquivos .pem/.key
 
 --- 
 
-🔐 Level 14 → 15
+## 🔐 Level 14 → 15
 
 ### Objetivo
+
+```
+(The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.)
+```
 
 Enviar a senha atual para uma porta local via conexão SSL.
 
@@ -385,7 +391,15 @@ Interação com serviços locais por porta
 ---
 ## 🔐 Level 15 → 16
 
+![Level 15 → 16](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_16.png)
+
 ### Objetivo
+
+```
+(The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL/TLS encryption.
+
+Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage.)
+```
 
 Encontrar portas abertas entre 31000–32000 e identificar o serviço correto TLS.
 
@@ -412,6 +426,11 @@ Análise de respostas de handshake
 ## 🔐 Level 16 → 17
 
 ### Objetivo
+
+```
+(The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL/TLS and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
+
+Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage.)
 
 Comparar dois arquivos e encontrar a senha alterada.
 
@@ -441,8 +460,9 @@ Acessar o servidor SSH, mas a sessão fecha automaticamente. A solução envolve
 ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
 ```
 Senha obtida:
-
+```
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+```
 
 ### Aprendizado
 
@@ -455,9 +475,12 @@ Contorno de shells restritas
 
 ### Objetivo
 
+```
 (There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
 
 NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19)
+
+```
 
 Ao tentar login, o servidor encerra a sessão imediatamente.
 
@@ -475,33 +498,44 @@ Execução não interativa via SSH
 ---
 ## 🔐 Level 19 → 20
 
+![Level 18 → 19](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_19.png)
+
 ### Objetivo
+```
+(The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.)
+```
 
 Usar um binário setuid para executar comandos como outro usuário (bandit20) e obter a senha em /etc/bandit_pass.
 
 Análise do binário
+```
 ./bandit20-do
-
+```
 Mostra:
-
+```
 Run a command as another user.
 Example: ./bandit20-do whoami
-
+```
 Verificação de privilégios:
-
+```
 ./bandit20-do id
-
+```
 Resultado:
-
+```
 uid=11019(bandit19) euid=11020(bandit20)
 Tentativa inicial
 ./bandit20-do cat /etc/bandit_pass/bandiit20
+```
 
 Erro de caminho incorreto.
 
 Solução correta
+```
 ./bandit20-do cat /etc/bandit_pass/bandit20
-Aprendizado
+```
+
+### Aprendizado
+
 Uso de binários SUID
 Diferença entre UID e EUID
 Escalada de privilégio local controlada
