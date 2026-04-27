@@ -264,4 +264,140 @@ O conteúdo do arquivo `data.txt` está codificado usando ROT13 (cifra de César
 ```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
+## 🔐 Level 12 → 13
 
+### Objetivo
+
+O arquivo `data.txt` estava comprimido múltiplas vezes em diferentes formatos (gzip, bzip2 e tar), exigindo extração encadeada.
+
+### Solução (resumo do processo)
+
+```bash
+mktemp -d
+cp data.txt /tmp/
+cd /tmp/<dir>
+file data.txt
+mv data.txt data.gz
+gunzip data.gz
+file data
+bzip2 -d data.bz2
+tar -xf data.tar
+
+(Repetido até obter o arquivo final legível)
+
+cat data.txt
+Aprendizado
+Identificação de múltiplos formatos de compressão
+Uso de file para inspeção
+Extração encadeada de arquivos
+🔐 Level 13 → 14
+Objetivo
+
+Acessar o próximo nível usando uma chave privada SSH fornecida.
+
+Solução
+ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
+Aprendizado
+Autenticação via chave privada SSH
+Permissões de arquivos .pem/.key
+🔐 Level 14 → 15
+Objetivo
+
+Enviar a senha atual para uma porta local via conexão SSL.
+
+Solução
+echo "PASSWORD_ATUAL" | openssl s_client -connect localhost:30001 -quiet
+Aprendizado
+Comunicação via TLS/SSL com openssl
+Interação com serviços locais por porta
+🔐 Level 15 → 16
+Objetivo
+
+Encontrar portas abertas entre 31000–32000 e identificar o serviço correto TLS.
+
+Solução
+nmap -p 31000-32000 localhost
+
+Testando portas:
+
+echo "PASSWORD_ATUAL" | openssl s_client -connect localhost:<PORTA> -quiet
+
+Porta correta retornou uma chave privada RSA.
+
+Aprendizado
+Escaneamento de portas com nmap
+Identificação de serviços SSL/TLS
+Análise de respostas de handshake
+🔐 Level 16 → 17
+Objetivo
+
+Comparar dois arquivos e encontrar a senha alterada.
+
+Solução
+diff passwords.new passwords.old
+
+Resultado:
+
+x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
+Aprendizado
+Comparação de arquivos com diff
+Identificação de alterações pontuais
+🔐 Level 17 → 18
+Objetivo
+
+Acessar o servidor SSH, mas a sessão fecha automaticamente. A solução envolve executar comandos diretamente.
+
+Solução
+ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+
+Senha obtida:
+
+cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
+Aprendizado
+Execução remota de comandos via SSH
+Contorno de shells restritas
+🔐 Level 18 → 19
+Problema
+
+Ao tentar login, o servidor encerra a sessão imediatamente.
+
+Solução
+
+Uso de execução direta de comando:
+
+ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
+Aprendizado
+Entendimento de shells restritas
+Execução não interativa via SSH
+🔐 Level 19 → 20
+Objetivo
+
+Usar um binário setuid para executar comandos como outro usuário (bandit20) e obter a senha em /etc/bandit_pass.
+
+Análise do binário
+./bandit20-do
+
+Mostra:
+
+Run a command as another user.
+Example: ./bandit20-do whoami
+
+Verificação de privilégios:
+
+./bandit20-do id
+
+Resultado:
+
+uid=11019(bandit19) euid=11020(bandit20)
+Tentativa inicial
+./bandit20-do cat /etc/bandit_pass/bandiit20
+
+Erro de caminho incorreto.
+
+Solução correta
+./bandit20-do cat /etc/bandit_pass/bandit20
+Aprendizado
+Uso de binários SUID
+Diferença entre UID e EUID
+Escalada de privilégio local controlada
+Importância de caminhos corretos em Linux
