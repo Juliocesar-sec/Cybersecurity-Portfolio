@@ -433,12 +433,16 @@ Análise de respostas de handshake
 Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read the “CONNECTED COMMANDS” section in the manpage.)
 
 Comparar dois arquivos e encontrar a senha alterada.
+```
 
 ### Solução
+
 ```
 diff passwords.new passwords.old
 ```
+
 Resultado:
+
 ```
 x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
 ```
