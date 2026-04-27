@@ -247,7 +247,7 @@ base64 -d data.txt
 * Decodificação de dados em Base64
 * Reconhecimento de formatos de encoding comuns
 
----
+ ---
 
 ## 🔐 Level 11 → 12
 
@@ -264,6 +264,9 @@ O conteúdo do arquivo `data.txt` está codificado usando ROT13 (cifra de César
 ```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ```
+
+---
+
 ## 🔐 Level 12 → 13
 
 ### Objetivo
@@ -282,95 +285,143 @@ gunzip data.gz
 file data
 bzip2 -d data.bz2
 tar -xf data.tar
-
+```
 (Repetido até obter o arquivo final legível)
 
+```
 cat data.txt
-Aprendizado
+```
+
+### Aprendizado
+
 Identificação de múltiplos formatos de compressão
 Uso de file para inspeção
 Extração encadeada de arquivos
-🔐 Level 13 → 14
-Objetivo
+
+---
+
+## 🔐 Level 13 → 14
+
+### Objetivo
 
 Acessar o próximo nível usando uma chave privada SSH fornecida.
 
-Solução
+### Solução
+```
 ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
-Aprendizado
+```
+### Aprendizado
 Autenticação via chave privada SSH
 Permissões de arquivos .pem/.key
+
+--- 
+
 🔐 Level 14 → 15
-Objetivo
+
+### Objetivo
 
 Enviar a senha atual para uma porta local via conexão SSL.
 
-Solução
+### Solução
+```
 echo "PASSWORD_ATUAL" | openssl s_client -connect localhost:30001 -quiet
-Aprendizado
+```
+
+### Aprendizado
+
 Comunicação via TLS/SSL com openssl
 Interação com serviços locais por porta
-🔐 Level 15 → 16
-Objetivo
+
+---
+## 🔐 Level 15 → 16
+
+### Objetivo
 
 Encontrar portas abertas entre 31000–32000 e identificar o serviço correto TLS.
 
-Solução
+### Solução
+
+```
 nmap -p 31000-32000 localhost
+```
 
 Testando portas:
-
+```
 echo "PASSWORD_ATUAL" | openssl s_client -connect localhost:<PORTA> -quiet
-
+```
 Porta correta retornou uma chave privada RSA.
 
-Aprendizado
+###  Aprendizado
+
 Escaneamento de portas com nmap
 Identificação de serviços SSL/TLS
 Análise de respostas de handshake
-🔐 Level 16 → 17
-Objetivo
+
+---
+
+## 🔐 Level 16 → 17
+
+### Objetivo
 
 Comparar dois arquivos e encontrar a senha alterada.
 
-Solução
+### Solução
+```
 diff passwords.new passwords.old
-
+```
 Resultado:
-
+```
 x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
-Aprendizado
+```
+
+### Aprendizado
 Comparação de arquivos com diff
 Identificação de alterações pontuais
-🔐 Level 17 → 18
-Objetivo
+
+---
+
+## 🔐 Level 17 → 18
+
+### Objetivo
 
 Acessar o servidor SSH, mas a sessão fecha automaticamente. A solução envolve executar comandos diretamente.
 
-Solução
+### Solução
+```
 ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
-
+```
 Senha obtida:
 
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
-Aprendizado
+
+### Aprendizado
+
 Execução remota de comandos via SSH
 Contorno de shells restritas
-🔐 Level 18 → 19
-Problema
+
+---
+
+## 🔐 Level 18 → 19
+
+### Objetivo
 
 Ao tentar login, o servidor encerra a sessão imediatamente.
 
-Solução
+### Solução
 
 Uso de execução direta de comando:
-
+```
 ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
-Aprendizado
+```
+
+### Aprendizado
 Entendimento de shells restritas
 Execução não interativa via SSH
-🔐 Level 19 → 20
-Objetivo
+
+---
+## 🔐 Level 19 → 20
+
+### Objetivo
 
 Usar um binário setuid para executar comandos como outro usuário (bandit20) e obter a senha em /etc/bandit_pass.
 
