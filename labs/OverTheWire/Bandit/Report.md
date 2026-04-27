@@ -544,3 +544,7 @@ Uso de binários SUID
 Diferença entre UID e EUID
 Escalada de privilégio local controlada
 Importância de caminhos corretos em Linux
+
+---
+
+
