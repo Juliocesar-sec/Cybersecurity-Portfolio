@@ -50,6 +50,8 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 ### Objetivo
 
+(The password for the next level is stored in a file called - located in the home directory)
+
 Acessar arquivo com nome especial (`-`).
 
 ### Solução
@@ -69,7 +71,8 @@ cat ./-
 
 ### Objetivo
 
-Arquivo com espaços no nome.
+(The password for the next level is stored in a file called --spaces in this filename-- located in the home directory)
+ ler o arquvio "--spaces in this filename--"
 
 ### Solução
 
@@ -87,6 +90,8 @@ cat "--spaces in this filename--"
 ## 📂 Level 3 → 4
 
 ### Objetivo
+
+(The password for the next level is stored in a hidden file in the inhere directory.)
 
 Encontrar arquivo oculto na pasta `inhere`.
 
@@ -108,6 +113,7 @@ cat .hidden
 ## 📄 Level 4 → 5
 
 ### Objetivo
+(The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.)
 
 Encontrar único arquivo legível por humanos.
 
@@ -131,6 +137,11 @@ cat <arquivo_ASCII>
 ![Level 5 → 6](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/44f9d7dbc4c156b15354373ebdab9b65bc2890d8/labs/OverTheWire/Bandit/Screenshot/Screenshot_5.png)
 
 ### Objetivo
+(The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
+
+    human-readable
+    1033 bytes in size
+    not executable)
 
 Arquivo com:
 
@@ -156,6 +167,12 @@ cat <arquivo_encontrado>
 
 ### Objetivo
 
+(The password for the next level is stored somewhere on the server and has all of the following properties:
+
+    owned by user bandit7
+    owned by group bandit6
+    33 bytes in size)
+
 Arquivo em qualquer lugar do sistema com:
 
 * usuário bandit7
@@ -180,6 +197,8 @@ cat <arquivo>
 
 ### Objetivo
 
+(The password for the next level is stored in the file data.txt next to the word millionth)
+
 Encontrar palavra "millionth" em data.txt
 
 ### Solução
@@ -197,6 +216,7 @@ grep "millionth" data.txt
 ## 🔁 Level 8 → 9
 
 ### Objetivo
+(The password for the next level is stored in the file data.txt and is the only line of text that occurs only once)
 
 Encontrar linha única em arquivo com duplicatas
 
@@ -216,6 +236,8 @@ sort data.txt | uniq -u
 ## 🧩 Level 9 → 10
 
 ### Objetivo
+
+(The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.)
 
 Encontrar string legível precedida por "===" em arquivo binário
 
