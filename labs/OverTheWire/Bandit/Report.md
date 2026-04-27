@@ -24,6 +24,8 @@ Este documento registra a resolução progressiva dos níveis iniciais do wargam
 
 ### Objetivo
 
+(The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.)
+
 Conectar via SSH ao servidor do jogo.
 
 ### Conexão
@@ -404,6 +406,10 @@ Contorno de shells restritas
 ## 🔐 Level 18 → 19
 
 ### Objetivo
+
+(There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
+
+NOTE: if you have solved this level and see ‘Byebye!’ when trying to log into bandit18, this is related to the next level, bandit19)
 
 Ao tentar login, o servidor encerra a sessão imediatamente.
 
