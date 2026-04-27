@@ -70,10 +70,13 @@ cat ./-
 ## 📁 Level 2 → 3
 
 ### Objetivo
+
 ```
 (The password for the next level is stored in a file called --spaces in this filename-- located in the home directory)
- ler o arquvio "--spaces in this filename--"
 ```
+
+ ler o arquvio `--spaces in this filename--`
+
 ### Solução
 
 ```bash
@@ -90,6 +93,7 @@ cat "--spaces in this filename--"
 ## 📂 Level 3 → 4
 
 ### Objetivo
+
 ```
 (The password for the next level is stored in a hidden file in the inhere directory.)
 ```
