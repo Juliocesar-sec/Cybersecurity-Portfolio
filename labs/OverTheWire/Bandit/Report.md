@@ -23,9 +23,9 @@ Este documento registra a resolução progressiva dos níveis iniciais do wargam
 ![Level 0 → 1](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_0.png)
 
 ### Objetivo
-
+```
 (The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.)
-
+```
 Conectar via SSH ao servidor do jogo.
 
 ### Conexão
@@ -49,9 +49,9 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 ## 📁 Level 1 → 2
 
 ### Objetivo
-
+```
 (The password for the next level is stored in a file called - located in the home directory)
-
+```
 Acessar arquivo com nome especial (`-`).
 
 ### Solução
@@ -70,10 +70,10 @@ cat ./-
 ## 📁 Level 2 → 3
 
 ### Objetivo
-
+```
 (The password for the next level is stored in a file called --spaces in this filename-- located in the home directory)
  ler o arquvio "--spaces in this filename--"
-
+```
 ### Solução
 
 ```bash
@@ -90,9 +90,9 @@ cat "--spaces in this filename--"
 ## 📂 Level 3 → 4
 
 ### Objetivo
-
+```
 (The password for the next level is stored in a hidden file in the inhere directory.)
-
+```
 Encontrar arquivo oculto na pasta `inhere`.
 
 ### Solução
@@ -113,8 +113,9 @@ cat .hidden
 ## 📄 Level 4 → 5
 
 ### Objetivo
+```
 (The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.)
-
+```
 Encontrar único arquivo legível por humanos.
 
 ### Solução
@@ -137,17 +138,19 @@ cat <arquivo_ASCII>
 ![Level 5 → 6](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/44f9d7dbc4c156b15354373ebdab9b65bc2890d8/labs/OverTheWire/Bandit/Screenshot/Screenshot_5.png)
 
 ### Objetivo
+```
 (The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
 
     human-readable
     1033 bytes in size
     not executable)
-
+```
 Arquivo com:
-
+```
 * 1033 bytes
 * legível
 * não executável
+```
 
 ### Solução
 
@@ -166,19 +169,19 @@ cat <arquivo_encontrado>
 ## 🔍 Level 6 → 7
 
 ### Objetivo
-
+```
 (The password for the next level is stored somewhere on the server and has all of the following properties:
 
     owned by user bandit7
     owned by group bandit6
     33 bytes in size)
-
+```
 Arquivo em qualquer lugar do sistema com:
-
+```
 * usuário bandit7
 * grupo bandit6
 * 33 bytes
-
+```
 ### Solução
 
 ```bash
@@ -196,9 +199,9 @@ cat <arquivo>
 ## 🔎 Level 7 → 8
 
 ### Objetivo
-
+```
 (The password for the next level is stored in the file data.txt next to the word millionth)
-
+```
 Encontrar palavra "millionth" em data.txt
 
 ### Solução
@@ -216,8 +219,9 @@ grep "millionth" data.txt
 ## 🔁 Level 8 → 9
 
 ### Objetivo
+```
 (The password for the next level is stored in the file data.txt and is the only line of text that occurs only once)
-
+```
 Encontrar linha única em arquivo com duplicatas
 
 ### Solução
@@ -237,7 +241,9 @@ sort data.txt | uniq -u
 
 ### Objetivo
 
+```
 (The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.)
+```
 
 Encontrar string legível precedida por "===" em arquivo binário
 
@@ -257,6 +263,10 @@ strings data.txt | grep "="
 ## 🔐 Level 10 → 11
 
 ### Objetivo
+
+```
+(The password for the next level is stored in the file data.txt, which contains base64 encoded data)
+```
 
 Decodificar conteúdo em Base64 presente no arquivo `data.txt`.
 
@@ -281,6 +291,10 @@ base64 -d data.txt
 
 ### Objetivo
 
+```
+(The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions)
+```
+
 O conteúdo do arquivo `data.txt` está codificado usando ROT13 (cifra de César com deslocamento 13) aplicada a letras maiúsculas e minúsculas.
 
 ### Solução
@@ -294,6 +308,10 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 ## 🔐 Level 12 → 13
 
 ### Objetivo
+
+```
+(The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!))
+```
 
 O arquivo `data.txt` estava comprimido múltiplas vezes em diferentes formatos (gzip, bzip2 e tar), exigindo extração encadeada.
 
@@ -327,6 +345,10 @@ Extração encadeada de arquivos
 ## 🔐 Level 13 → 14
 
 ### Objetivo
+
+```
+(The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Look at the commands that logged you into previous bandit levels, and find out how to use the key for this level.)
+```
 
 Acessar o próximo nível usando uma chave privada SSH fornecida.
 
