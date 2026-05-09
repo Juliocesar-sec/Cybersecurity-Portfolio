@@ -6,7 +6,7 @@ Este documento registra a resolução progressiva dos níveis iniciais do wargam
 
 ---
 
-## 🧠 Ferramentas utilizadas
+## Ferramentas utilizadas
 
 * SSH
 * ls / cd / cat
