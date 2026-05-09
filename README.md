@@ -2,7 +2,8 @@
 This repository documents my structured journey in cybersecurity, combining theoretical knowledge and hands-on practice. It is designed to prepare for industry-recognized certifications and demonstrate practical skills for SOC Analyst or Junior Pentester roles.
 
 
-🏆 Focus Areas
+## Focus Areas
+
 ```text
 .Area Status
 .CompTIA Security+ 🔹 In Progress
@@ -10,7 +11,9 @@ This repository documents my structured journey in cybersecurity, combining theo
 .SOC Analyst Skills 🔹 In Progres
 .Penetration Testing 🔹 Planned
 ```
-💡 Skills Covered
+
+## Skills Covered
+
 ```text
 .Networking fundamentals (TCP/IP, DNS, HTTP/HTTPS)
 .Cryptography and encryption models
@@ -20,7 +23,8 @@ This repository documents my structured journey in cybersecurity, combining theo
 .Web application security testing
 ```
 
-🛠️ Tools & Platforms
+## Tools & Platforms
+
 ```text
 | Tool / Platform | Purpose                       | Status      |
 | --------------- | ----------------------------- | ----------- |
@@ -32,7 +36,8 @@ This repository documents my structured journey in cybersecurity, combining theo
 | Hack The Box    | Pen testing challenges        | ✅ Practiced  |
 ```
 
-📈 Learning Roadmap
+## Learning Roadmap
+
 ```text
 Phase 1 – Security Fundamentals → ✅ Completed
 Phase 2 – Security Tools → 🔹 In Progress
