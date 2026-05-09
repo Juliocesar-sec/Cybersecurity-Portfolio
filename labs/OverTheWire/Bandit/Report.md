@@ -18,7 +18,7 @@ Este documento registra a resolução progressiva dos níveis iniciais do wargam
 
 ---
 
-## 🔐 Level 0 → 1
+##  Level 0 → 1
 
 ![Level 0 → 1](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_0.png)
 
@@ -46,7 +46,7 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 ---
 
-## 📁 Level 1 → 2
+## Level 1 → 2
 
 ### Objetivo
 ```
@@ -67,7 +67,7 @@ cat ./-
 
 ---
 
-## 📁 Level 2 → 3
+##  Level 2 → 3
 
 ### Objetivo
 
@@ -90,7 +90,7 @@ cat "--spaces in this filename--"
 
 ---
 
-## 📂 Level 3 → 4
+## Level 3 → 4
 
 ### Objetivo
 
@@ -114,7 +114,7 @@ cat .hidden
 
 ---
 
-## 📄 Level 4 → 5
+##  Level 4 → 5
 
 ### Objetivo
 ```
@@ -137,7 +137,7 @@ cat <arquivo_ASCII>
 
 ---
 
-## 📏 Level 5 → 6
+##  Level 5 → 6
 
 ![Level 5 → 6](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/44f9d7dbc4c156b15354373ebdab9b65bc2890d8/labs/OverTheWire/Bandit/Screenshot/Screenshot_5.png)
 
@@ -170,7 +170,7 @@ cat <arquivo_encontrado>
 
 ---
 
-## 🔍 Level 6 → 7
+##  Level 6 → 7
 
 ### Objetivo
 ```
@@ -200,7 +200,7 @@ cat <arquivo>
 
 ---
 
-## 🔎 Level 7 → 8
+##  Level 7 → 8
 
 ### Objetivo
 ```
@@ -220,7 +220,7 @@ grep "millionth" data.txt
 
 ---
 
-## 🔁 Level 8 → 9
+##  Level 8 → 9
 
 ### Objetivo
 ```
@@ -241,7 +241,7 @@ sort data.txt | uniq -u
 
 ---
 
-## 🧩 Level 9 → 10
+##  Level 9 → 10
 
 ### Objetivo
 
@@ -264,7 +264,7 @@ strings data.txt | grep "="
 
 ---
 
-## 🔐 Level 10 → 11
+##  Level 10 → 11
 
 ### Objetivo
 
@@ -287,7 +287,7 @@ base64 -d data.txt
 
  ---
 
-## 🔐 Level 11 → 12
+##  Level 11 → 12
 
 
 ![Level 11 → 12](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
@@ -309,7 +309,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 
 ---
 
-## 🔐 Level 12 → 13
+##  Level 12 → 13
 
 ![Level 12 → 13](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_12.png)
 
@@ -348,7 +348,7 @@ Extração encadeada de arquivos
 
 ---
 
-## 🔐 Level 13 → 14
+##  Level 13 → 14
 
 ### Objetivo
 
@@ -368,7 +368,7 @@ Permissões de arquivos .pem/.key
 
 --- 
 
-## 🔐 Level 14 → 15
+##  Level 14 → 15
 
 ### Objetivo
 
@@ -389,7 +389,7 @@ Comunicação via TLS/SSL com openssl
 Interação com serviços locais por porta
 
 ---
-## 🔐 Level 15 → 16
+##  Level 15 → 16
 
 ![Level 15 → 16](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_16.png)
 
@@ -423,7 +423,7 @@ Análise de respostas de handshake
 
 ---
 
-## 🔐 Level 16 → 17
+##  Level 16 → 17
 
 ### Objetivo
 
@@ -453,7 +453,7 @@ Identificação de alterações pontuais
 
 ---
 
-## 🔐 Level 17 → 18
+##  Level 17 → 18
 
 ### Objetivo
 
@@ -475,7 +475,7 @@ Contorno de shells restritas
 
 ---
 
-## 🔐 Level 18 → 19
+##  Level 18 → 19
 
 ### Objetivo
 
@@ -500,7 +500,7 @@ Entendimento de shells restritas
 Execução não interativa via SSH
 
 ---
-## 🔐 Level 19 → 20
+##  Level 19 → 20
 
 ![Level 18 → 19](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_19.png)
 
