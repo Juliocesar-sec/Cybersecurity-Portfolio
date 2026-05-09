@@ -21,24 +21,25 @@ Este documento registra a resolução progressiva dos níveis iniciais do wargam
 
 ![Level 0 → 1](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_0.png)
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.)
 ```
 Conectar via SSH ao servidor do jogo.
 
-### Conexão
+**Conexão**
 
 ```bash
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 ```
 
-### Credenciais
+**Credenciais**
 
 * Usuário: bandit0
 * Senha: bandit0
 
-### Aprendizado
+**Aprendizado**
 
 * Uso básico de SSH
 * Conexão remota em porta não padrão
@@ -47,19 +48,20 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 ## Level 1 → 2
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in a file called - located in the home directory)
 ```
 Acessar arquivo com nome especial (`-`).
 
-### Solução
+**Solução**
 
 ```bash
 cat ./-
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Arquivos com nomes interpretados como argumentos
 * Uso de `./` para evitar ambiguidades
@@ -68,7 +70,7 @@ cat ./-
 
 ##  Level 2 → 3
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in a file called --spaces in this filename-- located in the home directory)
@@ -76,13 +78,13 @@ cat ./-
 
  ler o arquvio `--spaces in this filename--`
 
-### Solução
+**Solução**
 
 ```bash
 cat "--spaces in this filename--"
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Escape de espaços
 * Uso de aspas em nomes de arquivos
@@ -91,14 +93,14 @@ cat "--spaces in this filename--"
 
 ## Level 3 → 4
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in a hidden file in the inhere directory.)
 ```
 Encontrar arquivo oculto na pasta `inhere`.
 
-### Solução
+**Solução**
 
 ```bash
 cd inhere
@@ -106,7 +108,7 @@ ls -la
 cat .hidden
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Arquivos ocultos (prefixo ".")
 * Uso de `ls -la`
@@ -115,13 +117,14 @@ cat .hidden
 
 ##  Level 4 → 5
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in the only human-readable file in the inhere directory. Tip: if your terminal is messed up, try the “reset” command.)
 ```
 Encontrar único arquivo legível por humanos.
 
-### Solução
+**Solução**
 
 ```bash
 cd inhere
@@ -129,7 +132,7 @@ file ./*
 cat <arquivo_ASCII>
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Identificação de tipos de arquivos
 * Uso do comando `file`
@@ -140,7 +143,8 @@ cat <arquivo_ASCII>
 
 ![Level 5 → 6](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/44f9d7dbc4c156b15354373ebdab9b65bc2890d8/labs/OverTheWire/Bandit/Screenshot/Screenshot_5.png)
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in a file somewhere under the inhere directory and has all of the following properties:
 
@@ -155,14 +159,14 @@ Arquivo com:
 * não executável
 ```
 
-### Solução
+**Solução**
 
 ```bash
 find . -type f -size 1033c ! -executable
 cat <arquivo_encontrado>
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Uso avançado do `find`
 * Filtragem por tamanho e permissões
@@ -171,7 +175,8 @@ cat <arquivo_encontrado>
 
 ##  Level 6 → 7
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored somewhere on the server and has all of the following properties:
 
@@ -185,14 +190,14 @@ Arquivo em qualquer lugar do sistema com:
 * grupo bandit6
 * 33 bytes
 ```
-### Solução
+**Solução**
 
 ```bash
 find / -type f -user bandit7 -group bandit6 -size 33c 2>/dev/null
 cat <arquivo>
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Busca em todo sistema
 * Redirecionamento de erros (`2>/dev/null`)
@@ -201,19 +206,20 @@ cat <arquivo>
 
 ##  Level 7 → 8
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in the file data.txt next to the word millionth)
 ```
 Encontrar palavra "millionth" em data.txt
 
-### Solução
+**Solução**
 
 ```bash
 grep "millionth" data.txt
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Filtragem de texto com `grep`
 
@@ -221,19 +227,20 @@ grep "millionth" data.txt
 
 ##  Level 8 → 9
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in the file data.txt and is the only line of text that occurs only once)
 ```
 Encontrar linha única em arquivo com duplicatas
 
-### Solução
+**Solução**
 
 ```bash
 sort data.txt | uniq -u
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Ordenação de dados
 * Filtragem de ocorrências únicas
@@ -242,7 +249,7 @@ sort data.txt | uniq -u
 
 ##  Level 9 → 10
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.)
@@ -250,13 +257,13 @@ sort data.txt | uniq -u
 
 Encontrar string legível precedida por "===" em arquivo binário
 
-### Solução
+**Solução**
 
 ```bash
 strings data.txt | grep "="
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Extração de strings de binários
 * Filtragem com grep
@@ -265,7 +272,7 @@ strings data.txt | grep "="
 
 ##  Level 10 → 11
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in the file data.txt, which contains base64 encoded data)
@@ -273,13 +280,13 @@ strings data.txt | grep "="
 
 Decodificar conteúdo em Base64 presente no arquivo `data.txt`.
 
-### Solução
+**Solução**
 
 ```bash
 base64 -d data.txt
 ```
 
-### Aprendizado
+**Aprendizado**
 
 * Decodificação de dados em Base64
 * Reconhecimento de formatos de encoding comuns
@@ -292,7 +299,7 @@ base64 -d data.txt
 ![Level 11 → 12](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/3838ce94eafbac104adbd57d64c9b689d85e1076/labs/OverTheWire/Bandit/Screenshot/Screenshot_11.png)
 
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions)
@@ -300,7 +307,7 @@ base64 -d data.txt
 
 O conteúdo do arquivo `data.txt` está codificado usando ROT13 (cifra de César com deslocamento 13) aplicada a letras maiúsculas e minúsculas.
 
-### Solução
+**Solução**
 
 ```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
@@ -312,7 +319,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 
 ![Level 12 → 13](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_12.png)
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work. Use mkdir with a hard to guess directory name. Or better, use the command “mktemp -d”. Then copy the datafile using cp, and rename it using mv (read the manpages!))
@@ -320,7 +327,7 @@ cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
 
 O arquivo `data.txt` estava comprimido múltiplas vezes em diferentes formatos (gzip, bzip2 e tar), exigindo extração encadeada.
 
-### Solução (resumo do processo)
+**Solução (resumo do processo)**
 
 ```bash
 mktemp -d
@@ -339,7 +346,7 @@ tar -xf data.tar
 cat data.txt
 ```
 
-### Aprendizado
+**Aprendizado**
 
 Identificação de múltiplos formatos de compressão
 Uso de file para inspeção
@@ -349,7 +356,7 @@ Extração encadeada de arquivos
 
 ##  Level 13 → 14
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Look at the commands that logged you into previous bandit levels, and find out how to use the key for this level.)
@@ -357,11 +364,13 @@ Extração encadeada de arquivos
 
 Acessar o próximo nível usando uma chave privada SSH fornecida.
 
-### Solução
+**Solução**
 ```
 ssh -i sshkey.private bandit14@bandit.labs.overthewire.org -p 2220
 ```
-### Aprendizado
+
+**Aprendizado**
+
 Autenticação via chave privada SSH
 Permissões de arquivos .pem/.key
 
@@ -369,7 +378,7 @@ Permissões de arquivos .pem/.key
 
 ##  Level 14 → 15
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.)
@@ -377,12 +386,12 @@ Permissões de arquivos .pem/.key
 
 Enviar a senha atual para uma porta local via conexão SSL.
 
-### Solução
+**Solução**
 ```
 echo "PASSWORD_ATUAL" | openssl s_client -connect localhost:30001 -quiet
 ```
 
-### Aprendizado
+**Aprendizado**
 
 Comunicação via TLS/SSL com openssl
 Interação com serviços locais por porta
@@ -392,7 +401,7 @@ Interação com serviços locais por porta
 
 ![Level 15 → 16](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_16.png)
 
-### Objetivo
+**Objetivo**
 
 ```
 (The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL/TLS encryption.
@@ -402,7 +411,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 
 Encontrar portas abertas entre 31000–32000 e identificar o serviço correto TLS.
 
-### Solução
+**Solução**
 
 ```
 nmap -p 31000-32000 localhost
@@ -414,7 +423,7 @@ echo "PASSWORD_ATUAL" | openssl s_client -connect localhost:<PORTA> -quiet
 ```
 Porta correta retornou uma chave privada RSA.
 
-###  Aprendizado
+**Aprendizado**
 
 Escaneamento de portas com nmap
 Identificação de serviços SSL/TLS
@@ -424,7 +433,7 @@ Análise de respostas de handshake
 
 ##  Level 16 → 17
 
-### Objetivo
+**Objetivo**
 
 ```
 (The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL/TLS and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.
@@ -434,7 +443,7 @@ Helpful note: Getting “DONE”, “RENEGOTIATING” or “KEYUPDATE”? Read t
 Comparar dois arquivos e encontrar a senha alterada.
 ```
 
-### Solução
+**Solução**
 
 ```
 diff passwords.new passwords.old
@@ -446,7 +455,7 @@ Resultado:
 x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
 ```
 
-### Aprendizado
+**Aprendizado**
 Comparação de arquivos com diff
 Identificação de alterações pontuais
 
@@ -454,11 +463,11 @@ Identificação de alterações pontuais
 
 ##  Level 17 → 18
 
-### Objetivo
+**Objetivo**
 
 Acessar o servidor SSH, mas a sessão fecha automaticamente. A solução envolve executar comandos diretamente.
 
-### Solução
+**Solução**
 ```
 ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
 ```
@@ -467,7 +476,7 @@ Senha obtida:
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 ```
 
-### Aprendizado
+**Aprendizado**
 
 Execução remota de comandos via SSH
 Contorno de shells restritas
@@ -476,7 +485,7 @@ Contorno de shells restritas
 
 ##  Level 18 → 19
 
-### Objetivo
+**Objetivo**
 
 ```
 (There are 2 files in the homedirectory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new
@@ -487,14 +496,15 @@ NOTE: if you have solved this level and see ‘Byebye!’ when trying to log int
 
 Ao tentar login, o servidor encerra a sessão imediatamente.
 
-### Solução
+**Solução**
 
 Uso de execução direta de comando:
 ```
 ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme
 ```
 
-### Aprendizado
+**Aprendizado**
+
 Entendimento de shells restritas
 Execução não interativa via SSH
 
@@ -503,7 +513,8 @@ Execução não interativa via SSH
 
 ![Level 18 → 19](https://github.com/Juliocesar-sec/cybersecurity-learning-portfolio/blob/5ea7e3ee9d1c38d42c0073fc32a5879e401ec412/labs/OverTheWire/Bandit/Screenshot/Screenshot_19.png)
 
-### Objetivo
+**Objetivo**
+
 ```
 (The password for the next level is stored in a file readme in the homedirectory. Unfortunately, someone has modified .bashrc to log you out when you log in with SSH.)
 ```
@@ -537,7 +548,7 @@ Solução correta
 ./bandit20-do cat /etc/bandit_pass/bandit20
 ```
 
-### Aprendizado
+**Aprendizado**
 
 Uso de binários SUID
 Diferença entre UID e EUID
