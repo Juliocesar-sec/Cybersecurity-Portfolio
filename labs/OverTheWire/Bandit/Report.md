@@ -1,10 +1,9 @@
 # OverTheWire Bandit – Relatório de Resolução
 
-## 📌 Visão geral
+ 📌 **Visão geral**
 
 Este documento registra a resolução progressiva dos níveis iniciais do wargame **OverTheWire Bandit**, focado em conceitos fundamentais de Linux, manipulação de arquivos, busca e decodificação de dados.
 
----
 
 ## Ferramentas utilizadas
 
