@@ -1,4 +1,4 @@
-# Network Security Hardening: GL-SFT1200 (Opal)
+# Network Security Hardening
 
 This project details the hardening and security optimization process performed on a GL-SFT1200 (Opal) router running OpenWrt 18.06. The primary objective was to mitigate vulnerabilities associated with exposed services and implement robust authentication through a public key infrastructure.
 
