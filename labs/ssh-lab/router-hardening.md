@@ -65,7 +65,7 @@ Host sft1200
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa
 ```
-![Host Login Configuration](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/b6f706006b321e7d69945eaaf0d163ccc848323d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-17-24.png)
+![Host Login Configuration1](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/b6f706006b321e7d69945eaaf0d163ccc848323d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-17-24.png)
 
 Complete Password Authentication Disablement (SSH Key Only)
 
@@ -75,6 +75,8 @@ uci set dropbear.@dropbear.PasswordAuth='off'
 uci commit dropbear
 /etc/init.d/dropbear restart
 ```
+
+![Host Login Configuration2](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/a4c0503a167f5e6a8fb32e9016641f1853d4f932/labs/ssh-lab/prints/Screenshot_2026-05-12_09-22-34.png)
 
 ### **4. Maintenance Automation**
 
