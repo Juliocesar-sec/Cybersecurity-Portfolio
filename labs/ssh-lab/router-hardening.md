@@ -6,6 +6,8 @@ This project details the hardening and security optimization process performed o
 - Automated Maintenance: Implementation of scheduled reboots for RAM log cleanup and system stability.
 - Backup Security: Storage of secrets and private keys inside VeraCrypt-encrypted volumes.
 
+![router-hardening](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/128dd67bba0b24280c5711dedf972741abb3d86d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-11-33.png)
+
 ## Technical Details**
 
 ### **1. Package Management and Repositories**
