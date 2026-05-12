@@ -1,25 +1,30 @@
-Network Security Hardening: GL-SFT1200 (Opal)
+# Network Security Hardening: GL-SFT1200 (Opal)
 
 This project details the hardening and security optimization process performed on a GL-SFT1200 (Opal) router running OpenWrt 18.06. The primary objective was to mitigate vulnerabilities associated with exposed services and implement robust authentication through a public key infrastructure.
 
-SSH Key Authentication (RSA): Migration from password-based authentication to 2048-bit RSA cryptographic keys with legacy compatibility parameters.
-Automated Maintenance: Implementation of scheduled reboots for RAM log cleanup and system stability.
-Backup Security: Storage of secrets and private keys inside VeraCrypt-encrypted volumes.
-🛠️ Technical Details
-1. Package Management and Repositories
+- SSH Key Authentication (RSA): Migration from password-based authentication to 2048-bit RSA cryptographic keys with legacy compatibility parameters.
+- Automated Maintenance: Implementation of scheduled reboots for RAM log cleanup and system stability.
+- Backup Security: Storage of secrets and private keys inside VeraCrypt-encrypted volumes.
+
+**Technical Details**
+
+## **1. Package Management and Repositories**
 
 To resolve the wget returned 5 error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
 
-# Manual date adjustment for SSL/TLS certificate validation
+```
+### Manual date adjustment for SSL/TLS certificate validation
 date 051209302026
 
 # Update package repository indexes
 opkg update
-2. Firewall and Perimeter Defense
+```
+
+### **2. Firewall and Perimeter Defense**
 
 Implementation of DROP firewall rules to mitigate port scanning attempts and external exploitation against the WAN interface.
 
-Blocked Ports
+**Blocked Ports**
 
 Transfer/Access Services:
 20, 21 (FTP), 22 (SSH), 69 (TFTP), 80 (HTTP)
