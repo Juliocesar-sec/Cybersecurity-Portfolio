@@ -1,6 +1,6 @@
 # Network Security Hardening
 
-This project details the hardening and security optimization process performed on a GL-SFT1200 (Opal) router running OpenWrt 18.06. The primary objective was to mitigate vulnerabilities associated with exposed services and implement robust authentication through a public key infrastructure.
+This project details the hardening and security optimization process performed on a SFT1200 router running OpenWrt. The primary objective was to mitigate vulnerabilities associated with exposed services and implement robust authentication through a public key infrastructure.
 
 - SSH Key Authentication (RSA): Migration from password-based authentication to 2048-bit RSA cryptographic keys with legacy compatibility parameters.
 - Automated Maintenance: Implementation of scheduled reboots for RAM log cleanup and system stability.
