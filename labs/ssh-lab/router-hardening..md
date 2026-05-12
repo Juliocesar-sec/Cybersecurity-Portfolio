@@ -6,9 +6,9 @@ This project details the hardening and security optimization process performed o
 - Automated Maintenance: Implementation of scheduled reboots for RAM log cleanup and system stability.
 - Backup Security: Storage of secrets and private keys inside VeraCrypt-encrypted volumes.
 
-**Technical Details**
+## Technical Details**
 
-## **1. Package Management and Repositories**
+### **1. Package Management and Repositories**
 
 To resolve the wget returned 5 error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
 
