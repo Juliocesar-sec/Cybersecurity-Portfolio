@@ -77,7 +77,8 @@ uci commit dropbear
 
 To prevent RAM log overflow and ensure periodic connection renewal, a scheduled Cron task was configured:
 
-````
+
+```
 # Daily reboot at 04:00 AM for system and log cleanup
 00 04 * * * /sbin/reboot
 ```
