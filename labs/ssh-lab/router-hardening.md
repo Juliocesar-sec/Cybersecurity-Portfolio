@@ -65,7 +65,7 @@ Host sft1200
     HostKeyAlgorithms +ssh-rsa
     PubkeyAcceptedKeyTypes +ssh-rsa
 ```
-![Host Login Configuration](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/57e572317d626baf52b616eef1aa4864d015a057/labs/ssh-lab/prints/Screenshot_2026-05-12_09-11-33.png)
+![Host Login Configuration](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/b6f706006b321e7d69945eaaf0d163ccc848323d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-17-24.png)
 
 Complete Password Authentication Disablement (SSH Key Only)
 
