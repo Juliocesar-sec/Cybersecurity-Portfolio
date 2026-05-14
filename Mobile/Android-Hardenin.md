@@ -583,44 +583,6 @@ Avoid:
 | Maps             | Organic Maps          |
 | File Sync        | Syncthing             |
 
----
-
-# LinkedIn Post
-
-```markdown
-Recently, I performed a non-root Android hardening and debloating process on a Xiaomi Redmi Note 12 using ADB from Debian 13.
-
-Main objectives:
-- Reduce telemetry
-- Reduce attack surface
-- Remove unnecessary Google/Xiaomi services
-- Improve operational security
-- Harden the device without rooting
-
-Actions performed:
-- Removed Xiaomi advertising framework (MSA)
-- Removed analytics and telemetry packages
-- Removed recommendation engines and cloud-heavy services
-- Disabled unnecessary overlays and notification monitoring
-- Audited accessibility services and privileged permissions
-- Verified device encryption
-- Reduced Google ecosystem exposure while preserving compatibility
-
-Security-focused practices used:
-- ADB package auditing
-- AppOps restrictions
-- Notification listener auditing
-- Accessibility inspection
-- Encryption verification
-- DNS filtering recommendations
-
-Result:
-A significantly cleaner, more privacy-conscious Android environment with reduced telemetry and a smaller attack surface, while maintaining system stability and core functionality.
-
-This was a good practical exercise in Android hardening, mobile privacy, and operational security.
-
-#CyberSecurity #AndroidSecurity #Privacy #ADB #Linux #Debian #Xiaomi #MobileSecurity #InfoSec #Telemetry #Android #DigitalPrivacy
-```
 
 ---
 
