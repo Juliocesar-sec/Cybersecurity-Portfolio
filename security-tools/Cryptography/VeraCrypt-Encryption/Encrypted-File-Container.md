@@ -23,7 +23,7 @@ The process was carried out in a Linux virtual machine for demonstration and por
 
 ---
 
-## 🖥️ Environment Used
+## Environment Used
 
 - Operating System: Linux (XFCE desktop environment)
 - Tools used:
