@@ -24,6 +24,8 @@ adb shell pm uninstall --user 0 com.google.android.feedback
 adb shell pm uninstall --user 0 com.google.android.gms.location.history
 adb shell pm uninstall --user 0 com.android.hotwordenrollment.okgoogle
 adb shell pm uninstall --user 0 com.android.hotwordenrollment.xgoogle
+adb shell pm uninstall -k --user 0 com.google.android.dialer
+adb shell pm uninstall -k --user 0 com.google.android.apps.messaging
 
 adb shell pm uninstall --user 0 com.miui.analytics
 adb shell pm uninstall --user 0 com.miui.daemon
