@@ -1,8 +1,9 @@
 # 🔐 Encryption & Cybersecurity Portfolio
 
-![Security](https://shields.io)
-![Encryption](https://shields.io)
-![Status](https://shields.io)
+![Encryption](https://img.shields.io/badge/Encryption-AES%20256-blue?style=for-the-badge&logo=letsencrypt&logoColor=white)
+![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Security-darkred?style=for-the-badge&logo=hackthebox&logoColor=white)
+![OpenSSL](https://img.shields.io/badge/OpenSSL-Cryptography-green?style=for-the-badge&logo=openssl&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Learning%20%26%20Building-success?style=for-the-badge)
 
 ***About This Portfolio***
 
