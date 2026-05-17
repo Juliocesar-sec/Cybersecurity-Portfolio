@@ -1,48 +1,76 @@
-OWASP Mutillidae II Home Lab
+# 🛡️ OWASP Mutillidae II Home Lab
 
 A step-by-step guide to download and run OWASP Mutillidae II, a deliberately vulnerable web application for learning web security, using Docker on Kali Linux.
-Prerequisites
 
-    Kali Linux (or any Linux distribution)
+![Kali Linux](https://img.shields.io/badge/Kali%20Linux-Penetration%20Testing-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerized%20Lab-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![OWASP](https://img.shields.io/badge/OWASP-Web%20Security-black?style=for-the-badge&logo=owasp&logoColor=white)
+![Mutillidae II](https://img.shields.io/badge/Mutillidae%20II-Vulnerable%20Web%20App-darkred?style=for-the-badge)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Home%20Lab-success?style=for-the-badge)
 
-    Git installed
+---
 
-    Docker and Docker Compose installed and running
+# 📋 Prerequisites
 
-    Note: If Git or Docker are not installed, follow the installation instructions below.
+Before starting, ensure the following are installed:
 
-Installing Git and Docker on Kali Linux
+- Kali Linux (or any Linux distribution)
+- Git
+- Docker
+- Docker Compose
 
+> Note: If Git or Docker are not installed, follow the installation instructions below.
+
+---
+
+# ⚙️ Installing Git and Docker on Kali Linux
+
+```bash
 sudo apt update && sudo apt upgrade -y
 sudo apt install git docker.io docker-compose -y
 sudo systemctl start docker
 sudo systemctl enable docker
+```
 
-Step 1: Clone the Mutillidae II Repository
+---
 
-Clone the official Mutillidae II repository from GitHub:
+# 📥 Step 1: Clone the Mutillidae II Repository
 
+Clone the official repository from GitHub:
+
+```bash
 git clone https://github.com/webpwnized/mutillidae.git
+```
 
-Change into the cloned directory:
+Move into the cloned directory:
 
+```bash
 cd mutillidae
+```
 
-Step 2: Create the Dockerfile
+---
 
-In your project root directory (where you want to run the containers), create a file named Dockerfile with the following content:
+# 🐳 Step 2: Create the Dockerfile
 
+Create a file named `Dockerfile` with the following content:
+
+```Dockerfile
 FROM php:7.4-apache
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql && \
     a2enmod rewrite
 
 EXPOSE 80
+```
 
-Step 3: Create the docker-compose.yml File
+---
 
-Create a file named docker-compose.yml in the same directory with the following content:
+# 📦 Step 3: Create the docker-compose.yml File
 
+Create a file named `docker-compose.yml`:
+
+```yaml
 version: '3.8'
 
 services:
@@ -66,17 +94,56 @@ services:
 
 volumes:
   db_data:
+```
 
-Step 4: Start the Environment
+---
 
-Build and start the Docker containers by running:
+# 🚀 Step 4: Start the Environment
 
+Build and start the Docker containers:
+
+```bash
 docker-compose up --build
+```
 
-Once started, access Mutillidae II in your browser at:
+After startup, open the application in your browser:
 
+```text
 http://localhost:8080
+```
 
-Step 5: Explore and Learn
+---
 
-Open the URL above and start exploring the security vulnerabilities in Mutillidae II for educational purposes.
+# 🔍 Step 5: Explore and Learn
+
+Use the platform to practice and understand common web vulnerabilities, including:
+
+- SQL Injection
+- Cross-Site Scripting (XSS)
+- Authentication Weaknesses
+- Command Injection
+- Session Security Issues
+- Input Validation Problems
+
+This lab environment is designed strictly for educational and authorized testing purposes.
+
+---
+
+# 🎯 Learning Objectives
+
+Through this home lab, you can practice:
+
+- Web application security testing
+- Docker container deployment
+- Local penetration testing environments
+- Vulnerability identification
+- Secure configuration awareness
+- Basic offensive security concepts
+
+---
+
+# ⚠️ Disclaimer
+
+OWASP Mutillidae II is intentionally vulnerable software designed for security education. Only run this environment locally or inside authorized lab environments. Never expose vulnerable applications to the public internet.
+
+---
