@@ -12,7 +12,6 @@ This repository documents my structured journey in cybersecurity, combining theo
 ## Focus Areas
 
 ```text
-
 .CompTIA Security+ 
 .CompTIA PenTest+ 
 .SOC Analyst Skills 
