@@ -1,4 +1,9 @@
 # cybersecurity-learning-portfolio
+
+![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Security-darkred?style=for-the-badge&logo=hackthebox&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-System%20Security-black?style=for-the-badge&logo=linux&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Learning%20%26%20Building-success?style=for-the-badge)
+
 This repository documents my structured journey in cybersecurity, combining theoretical knowledge and hands-on practice. It is designed to prepare for industry-recognized certifications and demonstrate practical skills for SOC Analyst or Junior Pentester roles.
 
 
