@@ -16,9 +16,12 @@ To resolve the wget returned 5 error (common on legacy systems where SSL certifi
 
 
 ### Manual date adjustment for SSL/TLS certificate validation
+```
 date 051209302026
+```
 
 # Update package repository indexes
+```
 opkg update
 ```
 
