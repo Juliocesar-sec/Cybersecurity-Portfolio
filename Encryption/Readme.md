@@ -1,5 +1,9 @@
 # 🔐 Encryption & Cybersecurity Portfolio
 
+![Security](https://shields.io)
+![Encryption](https://shields.io)
+![Status](https://shields.io)
+
 ***About This Portfolio***
 
 This portfolio represents a practical foundation in encryption, cybersecurity principles, and data protection technologies, focused on securing digital communication, protecting sensitive information, and understanding modern cryptographic systems. The main objective is to demonstrate technical knowledge used in secure networks, system protection, authentication systems, and cybersecurity environments.
