@@ -54,11 +54,19 @@ uci commit firewall
 
 ### **3. SSH Hardening (Dropbear)**
 
-Replacement of password-based authentication with RSA public key authentication (2048-bit). Due to the legacy nature of the firmware, compatibility parameters for SHA-1-based algorithms were required.
+Replacement of password-based authentication with modern public key authentication. Due to the legacy cryptographic restrictions of the embedded firmware (Dropbear), the modern Debian client blocked the connection by default (no matching host key type found). Specific compatibility parameters for SHA-1-based host key algorithms were required to bridge this gap.
+ 
+**CLI Ad-hoc Connection (Algorithm Enforcement)**
+
+ Before permanent automation, the connection was successfully established by manually forcing the acceptance of the legacy host key type algorithm via the terminal:
+ ```
+# Force legacy host key type negotiation over CLI
+ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.8.1
+```
 
 **Host Login Configuration (Debian)**
 
-A shortcut entry was created inside ~/.ssh/config to automate the required compatibility parameters:
+To streamline access and eliminate the need for verbose commands, a persistent shortcut entry was created inside ~/.ssh/config to automate the required compatibility parameters:
 
 ```
 Host sft1200
@@ -70,7 +78,7 @@ Host sft1200
 ```
 ![Host Login Configuration1](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/b6f706006b321e7d69945eaaf0d163ccc848323d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-17-24.png)
 
-Complete Password Authentication Disablement (SSH Key Only)
+**Complete Password Authentication Disablement (SSH Key Only)**
 
 ```
 uci set dropbear.@dropbear.RootPasswordAuth='off'
@@ -83,7 +91,7 @@ uci commit dropbear
 
 ### **4. Maintenance Automation**
 
-To prevent RAM log overflow and ensure periodic connection renewal, a scheduled Cron task was configured:
+To prevent RAM log overflow, cache fragmentation, and ensure periodic connection renewal, a scheduled Cron task was configured:
 
 
 ```
