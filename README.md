@@ -2,6 +2,8 @@
 
 ![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Security-darkred?style=for-the-badge&logo=hackthebox&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-System%20Security-black?style=for-the-badge&logo=linux&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-System%20Administration-0078D6?style=for-the-badge&logo=windows&logoColor=white)
+![Android](https://img.shields.io/badge/Android-Mobile%20Security-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Learning%20%26%20Building-success?style=for-the-badge)
 
 This repository documents my structured journey in cybersecurity, combining theoretical knowledge and hands-on practice. It is designed to prepare for industry-recognized certifications and demonstrate practical skills for SOC Analyst or Junior Pentester roles.
