@@ -14,7 +14,7 @@ This project details the hardening and security optimization process performed o
 
 To resolve the wget returned 5 error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
 
-```
+
 ### Manual date adjustment for SSL/TLS certificate validation
 date 051209302026
 
