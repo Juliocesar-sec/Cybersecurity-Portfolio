@@ -12,11 +12,11 @@ This repository documents my structured journey in cybersecurity, combining theo
 ## Focus Areas
 
 ```text
-.Area Status
-.CompTIA Security+ 🔹 In Progress
-.CompTIA PenTest+ 🔹 Planned
-.SOC Analyst Skills 🔹 In Progres
-.Penetration Testing 🔹 Planned
+
+.CompTIA Security+ 
+.CompTIA PenTest+ 
+.SOC Analyst Skills 
+.Penetration Testing 
 ```
 
 ## Skills Covered
