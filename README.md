@@ -1,4 +1,4 @@
-# <h2 align="center">cybersecurity-learning-portfolio</h2>
+# <h2 align="center">Cybersecurity Learning Portfolio</h2>
 
 ![Cybersecurity](https://img.shields.io/badge/Cybersecurity-Security-darkred?style=for-the-badge&logo=hackthebox&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-System%20Security-black?style=for-the-badge&logo=linux&logoColor=white)
