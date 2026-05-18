@@ -68,6 +68,8 @@ Using VeraCrypt mitigates these risks by ensuring keys are only accessible when 
 
 ## Basic Concepts
 
+![saizoiao](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/cd5048ebe50354e7cde9c3f88d8ccb556b40e046/labs/ssh-lab/prints/Saizoaio.png)
+ 
 Understanding this setup requires knowledge of three core components:
 
 ### 🔐 VeraCrypt encrypted container
