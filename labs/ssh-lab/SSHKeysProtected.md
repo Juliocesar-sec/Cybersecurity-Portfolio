@@ -94,5 +94,44 @@ Example:
 ~/.ssh/id_ed25519 → /media/veracrypt3/keys/id_ed25519
 ```
 
+They allow SSH to function normally without knowing where the real file is stored.
+
+
+### 🔑 SSH agent integration
+
+The SSH agent loads decrypted keys into memory temporarily.
+
+* Keys are unlocked via passphrase
+* Stored only in RAM during session
+* Used for authentication without retyping password
+
+Command:
+
+```bash
+ssh-add ~/.ssh/id_ed25519
+```
+
+**Installation / Setup Summary**
+
+1. Create or mount VeraCrypt volume
+
+```
+veracrypt ~/.ssh/saizoiao.lo /media/veracrypt3
+```
+
+2. Create secure key directory inside volume
+
+```
+mkdir -p /media/veracrypt3/keys
+chmod 700 /media/veracrypt3/keys
+```
+
+3. Move SSH private keys into encrypted storage
+
+```
+mv ~/.ssh/id_ed25519 /media/veracrypt3/keys/
+mv ~/.ssh/id_rsa_sft /media/veracrypt3/keys/
+```
+
 
 
