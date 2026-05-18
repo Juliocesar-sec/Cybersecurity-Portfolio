@@ -1,5 +1,6 @@
 ## SSH Keys Protected with VeraCrypt – Practical Guide
 
+
 📌 What is this setup?
 
 This setup is a local security architecture where SSH private keys are stored inside an encrypted VeraCrypt volume instead of the default `~/.ssh` directory.
@@ -78,3 +79,20 @@ A file-based encrypted volume that acts like a secure virtual disk.
 * Automatically hides contents when unmounted
 
 Example:
+
+```
+~/.ssh/saizoiao.lo
+```
+
+### 🔗 Symbolic links (symlinks)
+
+Symlinks act as pointers from `~/.ssh` to the encrypted volume.
+
+Example:
+
+```
+~/.ssh/id_ed25519 → /media/veracrypt3/keys/id_ed25519
+```
+
+
+
