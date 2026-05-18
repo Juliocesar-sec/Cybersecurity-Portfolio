@@ -133,5 +133,70 @@ mv ~/.ssh/id_ed25519 /media/veracrypt3/keys/
 mv ~/.ssh/id_rsa_sft /media/veracrypt3/keys/
 ```
 
+4. Set strict permissions
 
+```
+chmod 600 /media/veracrypt3/keys/id_ed25519
+chmod 600 /media/veracrypt3/keys/id_rsa_sft
+```
+
+6. Create symbolic links back to ~/.ssh
+
+```
+ln -s /media/veracrypt3/keys/id_ed25519 ~/.ssh/id_ed25519
+ln -s /media/veracrypt3/keys/id_rsa_sft ~/.ssh/id_rsa_sft
+```
+
+7. Load SSH key into agent
+
+```
+ssh-add ~/.ssh/id_ed25519
+```
+
+8. Verify loaded keys
+
+```
+ssh-add -l
+
+```
+
+**Basic Security Rules**
+
+A secure SSH vault setup follows strict separation between accessible and encrypted states.
+
+🔸 Private keys must never exist unencrypted in home directory
+
+- All private keys must reside inside VeraCrypt volume
+- Only symbolic links may exist outside the encrypted container
+
+🔸 Access depends on mounted volume state
+
+- If volume is mounted → SSH works normally
+- If volume is unmounted → keys become inaccessible
+
+This ensures encryption at rest is always enforced.
+
+🔸 Strict file permissions
+
+Required permissions:
+
+- .ssh directory → 700
+- private keys → 600
+- public keys → 644
+
+🔸 SSH agent usage is recommended
+
+- Prevents repeated passphrase entry
+- Keeps decrypted keys in memory only
+   Reduces exposure of private key files
+
+ **Security Model Overview**
+
+This setup implements a layered security model:
+
+🔐 Disk-level encryption (VeraCrypt)
+🔗 Abstraction layer (symlinks)
+🔑 Runtime protection (ssh-agent memory storage)
+
+Together, they ensure private keys are never exposed in plain form unless explicitly mounted and unlocked.
 
