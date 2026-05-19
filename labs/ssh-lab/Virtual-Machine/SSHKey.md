@@ -14,35 +14,51 @@ This report documents the process of generating an SSH key for secure authentica
 * Remote service for adding the public key (GitHub, GitLab, etc.)
 
 ------------------------------
+
+![step1](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/fd4cfa06527f6c962af9080b13301fea7b9527b9/labs/ssh-lab/Virtual-Machine/prints/SSH.01.png)
+
+
 ## 3. Command Executed
 
+```
 ssh-keygen -t ed25519 -C "oukn79gq4@mozmail.com"
+```
 
 Note: Make sure not to add a space between the - and the C.
+
 ------------------------------
 ## 4. Procedure
+
 1- Open the terminal.
 2- Execute the command above.
 3- Choose the location to save the key (press Enter to use the default ~/.ssh/id_ed25519).
 4- Enter a passphrase for the key (optional, you can press Enter to leave it blank).
 5- Creation confirmation:
 
+```
 Your identification has been saved in /home/kali/.ssh/id_ed25519
 Your public key has been saved in /home/kali/.ssh/id_ed25519.pub
 The key fingerprint is:
 SHA256:XXXXXXXXXXXXXXXXXXXXXXXX oukn79gq4@mozmail.com
+```
 
 ------------------------------
+
 ## 5. Location of the Keys
 
+```
 Private key: ~/.ssh/id_ed25519 (do not share)
 Public key: ~/.ssh/id_ed25519.pub (share with remote services)
+```
 
 ------------------------------
+
 ## 6. Key Validation
 To test if the SSH key works with a remote server or service:
 
+```
 ssh -T git@github.com
+```
 
 The terminal should display a success message after accepting the initial connection.
 ## 7. Final Notes
@@ -52,10 +68,4 @@ The terminal should display a success message after accepting the initial connec
 * Document and store in a secure backup if you need to migrate the key to another device.
 
 ------------------------------
-I can help you format or expand this report. Let me know if you would like to add:
-
-* Steps to copy the key to your clipboard (using xclip or cat)
-* Instructions on how to add the key to GitHub/GitLab
-* Troubleshooting steps for permission denied errors
-
 
