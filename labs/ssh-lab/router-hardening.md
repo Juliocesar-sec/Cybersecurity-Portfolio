@@ -1,48 +1,49 @@
 # Network Security Hardening
 
-This project details the hardening and security optimization process performed on a SFT1200 router running OpenWrt. The primary objective was to mitigate vulnerabilities associated with exposed services and implement robust authentication through a public key infrastructure.
+This project details the hardening and security optimization process performed on a GL.iNet SFT1200 router running OpenWrt. The primary objective was to mitigate vulnerabilities associated with exposed services and implement robust authentication through a public key infrastructure.
 
-- SSH Key Authentication (RSA): Migration from password-based authentication to 2048-bit RSA cryptographic keys with legacy compatibility parameters.
-- Automated Maintenance: Implementation of scheduled reboots for RAM log cleanup and system stability.
-- Backup Security: Storage of secrets and private keys inside VeraCrypt-encrypted volumes.
+- **SSH Key Authentication (RSA):** Migration from password-based authentication to 2048-bit RSA cryptographic keys with legacy compatibility parameters.
+- **Automated Maintenance:** Implementation of scheduled reboots for RAM log cleanup and system stability.
+- **Backup Security:** Storage of secrets and private keys inside VeraCrypt-encrypted volumes.
 
 ![router-hardening](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/128dd67bba0b24280c5711dedf972741abb3d86d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-11-33.png)
 
-## Technical Details**
+## Technical Details
 
+### 1. SSH Hardening (Dropbear)
 
-### **1. SSH Hardening (Dropbear)**
+Replacement of password-based authentication with modern public key authentication. Due to the legacy cryptographic restrictions of the embedded firmware (Dropbear), the modern Debian client blocked the connection by default (`no matching host key type found`). Specific compatibility parameters for SHA-1-based host key algorithms were required to bridge this gap.
 
-Replacement of password-based authentication with modern public key authentication. Due to the legacy cryptographic restrictions of the embedded firmware (Dropbear), the modern Debian client blocked the connection by default (no matching host key type found). Specific compatibility parameters for SHA-1-based host key algorithms were required to bridge this gap.
- 
-**CLI Ad-hoc Connection (Algorithm Enforcement)**
+#### CLI Ad-hoc Connection & Remote Host Key Resolution
+Before permanent automation, the connection was successfully established by manually forcing the acceptance of the legacy host key type algorithm via the terminal:
 
- Before permanent automation, the connection was successfully established by manually forcing the acceptance of the legacy host key type algorithm via the terminal:
- ```
+```bash
 # Force legacy host key type negotiation over CLI
-ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.8.1
+ssh -o HostKeyAlgorithms=+ssh-rsa root@192.168.8.1
 ```
 
-**Package Management and Repositories**
+If the router was previously re-flashed or reset, a `REMOTE HOST IDENTIFICATION HAS CHANGED` warning will trigger due to a public key mismatch in the client's tracking files. To resolve this error and flush the old signature, clear the outdated host record from the client cache:
 
-To resolve the wget returned 5 error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
-
-
-**Manual date adjustment for SSL/TLS certificate validation**
+```bash
+# Clear outdated host key signature for the router IP
+ssh-keygen -f '/home/debian/.ssh/known_hosts' -R '192.168.8.1'
 ```
+
+#### Package Management and Repositories
+To resolve the `wget returned 5` error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
+
+```bash
+# Manual date adjustment for SSL/TLS certificate validation
 date 051209302026
-```
 
-**Update package repository indexes**
-```
+# Update package repository indexes
 opkg update
 ```
 
-**Host Login Configuration (Debian)**
+#### Host Login Configuration (Debian)
+To streamline access and eliminate the need for verbose commands, a persistent shortcut entry was created inside `~/.ssh/config` to automate the required compatibility parameters:
 
-To streamline access and eliminate the need for verbose commands, a persistent shortcut entry was created inside ~/.ssh/config to automate the required compatibility parameters:
-
-```
+```text
 Host sft1200
     HostName 192.168.8.1
     User root
@@ -52,44 +53,44 @@ Host sft1200
 ```
 ![Host Login Configuration1](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/b6f706006b321e7d69945eaaf0d163ccc848323d/labs/ssh-lab/prints/Screenshot_2026-05-12_09-17-24.png)
 
-**Complete Password Authentication Disablement (SSH Key Only)**
-
-```
+#### Complete Password Authentication Disablement (SSH Key Only)
+```bash
+# Restrict access to authenticated key holders only
 uci set dropbear.@dropbear.RootPasswordAuth='off'
 uci set dropbear.@dropbear.PasswordAuth='off'
 uci commit dropbear
 /etc/init.d/dropbear restart
 ```
-
 ![Host Login Configuration2](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/a4c0503a167f5e6a8fb32e9016641f1853d4f932/labs/ssh-lab/prints/Screenshot_2026-05-12_09-22-34.png)
 
-### **2. Maintenance Automation**
+---
 
-To prevent RAM log overflow, cache fragmentation, and ensure periodic connection renewal, a scheduled Cron task was configured:
+### 2. Maintenance Automation
 
+To prevent RAM log overflow, cache fragmentation, and ensure periodic connection renewal, a scheduled Cron task was configured. 
 
+*Note: Pasting cron schedule notation lines directly into an interactive command shell triggers a syntax error (`-ash: 00: not found`) as the interpreter attempts to parse the time integers as system binaries. The string must instead be appended directly to the system crontab file layout.*
+
+```bash
+# Direct injection to root automation crontab file
+echo "00 04 * * * /sbin/reboot" >> /etc/crontabs/root
+
+# Restart the daemon to load the new schedule rule
+/etc/init.d/cron restart
 ```
-# Daily reboot at 04:00 AM for system and log cleanup
-00 04 * * * /sbin/reboot
-```
 
+---
 
-### **3. Firewall and Perimeter Defense**
+### 3. Firewall and Perimeter Defense
 
 Implementation of DROP firewall rules to mitigate port scanning attempts and external exploitation against the WAN interface.
 
-**Blocked Ports**
+#### Blocked Ports
+* **Transfer/Access Services:** 20, 21 (FTP), 22 (SSH), 69 (TFTP), 80 (HTTP)
+* **Database Services:** 3306 (MySQL), 5432 (PostgreSQL), 6379 (Redis), 27017 (MongoDB)
+* **Network/Discovery Services:** 25 (SMTP), 53 (DNS), 111 (RPC), 445 (SMB), 1900 (SSDP), 2049 (NFS), 5353 (mDNS), 5900 (VNC)
 
-Transfer/Access Services:
-20, 21 (FTP), 22 (SSH), 69 (TFTP), 80 (HTTP)
-
-Database Services:
-3306 (MySQL), 5432 (PostgreSQL), 6379 (Redis), 27017 (MongoDB)
-
-Network Services:
-25 (SMTP), 53 (DNS), 111 (RPC), 445 (SMB), 5900 (VNC)
-
-```
+```bash
 # OpenWrt CLI (UCI) implementation
 uci add firewall rule
 uci set firewall.@rule[-1].name='Block-High-Risk-WAN'
@@ -101,6 +102,11 @@ uci commit firewall
 /etc/init.d/firewall restart
 ```
 
-### **🔐 Backup and Encryption**
+#### Log Analysis and Boundary Isolation
+During validation testing, active local network sessions will continue generating local audit logs (`[UFW AUDIT] dpt=22`) on the client machine workstation kernel. This is normal behavior, as local client firewall profiles monitor output traffic independently from edge policies applied to the network router's external WAN interface boundaries.
+
+---
+
+### 🔐 Backup and Encryption
 
 To ensure Digital Sovereignty and prevent accidental lockout scenarios, RSA private keys were stored on an external physical device protected by a VeraCrypt-encrypted volume mounted through the FUSE interface on Linux.
