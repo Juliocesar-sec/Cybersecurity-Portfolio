@@ -52,7 +52,7 @@ uci commit firewall
 /etc/init.d/firewall restart
 ```
 
-### **3. SSH Hardening (Dropbear)**
+### **2. SSH Hardening (Dropbear)**
 
 Replacement of password-based authentication with modern public key authentication. Due to the legacy cryptographic restrictions of the embedded firmware (Dropbear), the modern Debian client blocked the connection by default (no matching host key type found). Specific compatibility parameters for SHA-1-based host key algorithms were required to bridge this gap.
  
@@ -89,7 +89,7 @@ uci commit dropbear
 
 ![Host Login Configuration2](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/a4c0503a167f5e6a8fb32e9016641f1853d4f932/labs/ssh-lab/prints/Screenshot_2026-05-12_09-22-34.png)
 
-### **4. Maintenance Automation**
+### **3. Maintenance Automation**
 
 To prevent RAM log overflow, cache fragmentation, and ensure periodic connection renewal, a scheduled Cron task was configured:
 
@@ -97,6 +97,34 @@ To prevent RAM log overflow, cache fragmentation, and ensure periodic connection
 ```
 # Daily reboot at 04:00 AM for system and log cleanup
 00 04 * * * /sbin/reboot
+```
+
+
+### **4. Firewall and Perimeter Defense**
+
+Implementation of DROP firewall rules to mitigate port scanning attempts and external exploitation against the WAN interface.
+
+**Blocked Ports**
+
+Transfer/Access Services:
+20, 21 (FTP), 22 (SSH), 69 (TFTP), 80 (HTTP)
+
+Database Services:
+3306 (MySQL), 5432 (PostgreSQL), 6379 (Redis), 27017 (MongoDB)
+
+Network Services:
+25 (SMTP), 53 (DNS), 111 (RPC), 445 (SMB), 5900 (VNC)
+
+```
+# OpenWrt CLI (UCI) implementation
+uci add firewall rule
+uci set firewall.@rule[-1].name='Block-High-Risk-WAN'
+uci set firewall.@rule[-1].src='wan'
+uci set firewall.@rule[-1].dest_port='20 21 22 25 53 80 111 445 69 3306 2049 5900 5432 6379 27017 1900 5353'
+uci set firewall.@rule[-1].proto='tcp udp'
+uci set firewall.@rule[-1].target='DROP'
+uci commit firewall
+/etc/init.d/firewall restart
 ```
 
 ### **🔐 Backup and Encryption**
