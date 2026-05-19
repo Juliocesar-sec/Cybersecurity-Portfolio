@@ -11,7 +11,7 @@ This project details the hardening and security optimization process performed o
 ## Technical Details**
 
 
-### **2. SSH Hardening (Dropbear)**
+### **1. SSH Hardening (Dropbear)**
 
 Replacement of password-based authentication with modern public key authentication. Due to the legacy cryptographic restrictions of the embedded firmware (Dropbear), the modern Debian client blocked the connection by default (no matching host key type found). Specific compatibility parameters for SHA-1-based host key algorithms were required to bridge this gap.
  
@@ -63,7 +63,7 @@ uci commit dropbear
 
 ![Host Login Configuration2](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/a4c0503a167f5e6a8fb32e9016641f1853d4f932/labs/ssh-lab/prints/Screenshot_2026-05-12_09-22-34.png)
 
-### **3. Maintenance Automation**
+### **2. Maintenance Automation**
 
 To prevent RAM log overflow, cache fragmentation, and ensure periodic connection renewal, a scheduled Cron task was configured:
 
@@ -74,7 +74,7 @@ To prevent RAM log overflow, cache fragmentation, and ensure periodic connection
 ```
 
 
-### **4. Firewall and Perimeter Defense**
+### **3. Firewall and Perimeter Defense**
 
 Implementation of DROP firewall rules to mitigate port scanning attempts and external exploitation against the WAN interface.
 
