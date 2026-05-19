@@ -10,20 +10,6 @@ This project details the hardening and security optimization process performed o
 
 ## Technical Details**
 
-### **1. Package Management and Repositories**
-
-To resolve the wget returned 5 error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
-
-
-### Manual date adjustment for SSL/TLS certificate validation
-```
-date 051209302026
-```
-
-# Update package repository indexes
-```
-opkg update
-```
 
 ### **2. SSH Hardening (Dropbear)**
 
@@ -35,6 +21,21 @@ Replacement of password-based authentication with modern public key authenticati
  ```
 # Force legacy host key type negotiation over CLI
 ssh -oHostKeyAlgorithms=+ssh-rsa root@192.168.8.1
+```
+
+**Package Management and Repositories**
+
+To resolve the wget returned 5 error (common on legacy systems where SSL certificates expire or the system clock becomes unsynchronized), a manual clock correction and package feed update were performed:
+
+
+**Manual date adjustment for SSL/TLS certificate validation**
+```
+date 051209302026
+```
+
+**Update package repository indexes**
+```
+opkg update
 ```
 
 **Host Login Configuration (Debian)**
