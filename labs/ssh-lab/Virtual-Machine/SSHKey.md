@@ -61,11 +61,74 @@ ssh -T git@github.com
 ```
 
 The terminal should display a success message after accepting the initial connection.
-## 7. Final Notes
+
+------------------------------
+
+## 7. Notes
 
 * Always keep the private key secure.
 * Use passphrases to protect the private key whenever possible.
 * Document and store in a secure backup if you need to migrate the key to another device.
 
 ------------------------------
+![step2](https://github.com/Juliocesar-sec/Cybersecurity-Portfolio/blob/c490d973c43e0a03b2af9c1a33dbaafb0e49548f/labs/ssh-lab/Virtual-Machine/prints/SSH.02.png)
+
+## 8. Sharing the Public Key (Remote Machine)
+
+### Method 1: Using `ssh-copy-id` (Recommended)
+
+```bash
+ssh-copy-id username@VM_IP
+```
+* **username** → The user on the Ubuntu VM.
+* **VM_IP** → The IP address of the Ubuntu VM.
+
+This command automatically copies your public key to the remote user's `~/.ssh/authorized_keys` file.
+
+### Method 2: Manual Process (Alternative)
+
+1. Display your local public key:
+   ```bash
+   cat ~/.ssh/id_ed25519.pub
+   ```
+2. Copy the displayed text content.
+3. Connect to your Ubuntu VM:
+   ```bash
+   ssh username@VM_IP
+   ```
+4. Create the `.ssh` directory and set permissions if it does not exist:
+   ```bash
+   mkdir -p ~/.ssh
+   chmod 700 ~/.ssh
+   ```
+5. Append your public key into the `authorized_keys` file:
+   ```bash
+   echo "PASTE_YOUR_KEY_HERE" >> ~/.ssh/authorized_keys
+   chmod 600 ~/.ssh/authorized_keys
+   ```
+
+---
+
+## 9. Testing SSH Access
+
+Test your connection after completing the configuration:
+
+```bash
+ssh username@VM_IP
+```
+* You will log in without a password if the key is accepted.
+* You will be prompted for your passphrase if your private key uses one.
+
+---
+
+## 10. Security Notes
+
+* Never share your private key.
+* Use strong passwords or passphrases.
+* Back up your private key securely for recovery.
+* Create different keys for different machines or services.
+
+
+
+
 
