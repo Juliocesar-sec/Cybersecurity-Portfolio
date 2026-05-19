@@ -2,7 +2,9 @@
 
 ------------------------------
 ## 1. Objective
+
 This report documents the process of generating an SSH key for secure authentication on remote servers or services, such as GitHub, GitLab, or a VPS.
+
 ------------------------------
 
 ## 2. Tools Used
