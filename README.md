@@ -20,17 +20,6 @@
  █   ▀▄█ █▀▄ █▀▀ █▀▄   ▀▀█ █▀▀ █   █ █ █▀▄ █  █  ▀▄█
  ▀▀▀  ▀  ▀▀  ▀▀▀ ▀ ▀   ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀ ▀ ▀ ▀  ▀   ▀
 
-+───────────────────────────────────────────────────+
-
-| [SYSTEM: CYBERSECURITY LAB]   [STATUS: ACTIVE]    |
-| [MODE: DEFENSE + OFFENSE]     [RISK: CONTROLLED]  |
-+───────────────────────────────────────────────────+
-
-| > FIREWALL: ACTIVE            > ENCRYPTION: AES-256 |
-| > IDS/IPS: MONITORING         > THREAT DETECTION: ON|
-| > LOGGING: ENABLED            > VULN SCANS: RUNNING |
-+───────────────────────────────────────────────────+
-
 ---
 
 ###  About This Repository
