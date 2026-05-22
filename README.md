@@ -136,23 +136,6 @@ This repository was created to:
 
 ---
 
-# Repository Structure
-
-```text
-📂 Cybersecurity-Learning-Portfolio
-├── 📁 networking
-├── 📁 linux
-├── 📁 windows
-├── 📁 web-security
-├── 📁 soc-analysis
-├── 📁 pentesting
-├── 📁 notes
-├── 📁 labs
-└── README.md
-```
-
----
-
 # Learning Philosophy
 
 This portfolio follows a practical learning approach focused on:
