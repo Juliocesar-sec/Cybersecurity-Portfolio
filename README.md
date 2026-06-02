@@ -40,6 +40,134 @@ This repository serves as both:
 
 ---
 
+## 📂 Portfolio Contents
+
+### 📁 Security Fundamentals
+
+Core cybersecurity concepts and foundational knowledge.
+
+```text
+security-fundamentals/
+├── Common Ports
+├── TCP/IP Fundamentals
+├── DNS Concepts
+├── HTTP & HTTPS
+├── Authentication
+├── Access Control
+├── Risk Management
+├── Security Principles
+└── Network Fundamentals
+```
+
+### 📁 Security Tools
+
+Practical experience with industry-standard security tools.
+
+```text
+security-tools/
+├── Nmap
+├── Wireshark
+├── Burp Suite
+├── Metasploit
+├── Sysmon
+├── Wazuh
+├── Splunk
+├── ELK Stack
+└── Suricata
+```
+
+### 📁 SOC Analysis
+
+Blue Team operations, monitoring, detection, and investigation.
+
+```text
+SocAnalysis/
+├── Log Analysis
+├── Security Monitoring
+├── Event Correlation
+├── Threat Hunting
+├── Detection Engineering
+├── Sigma Rules
+├── Incident Investigation
+└── Alert Triage
+```
+
+### 📁 Penetration Testing
+
+Offensive security methodologies and testing techniques.
+
+```text
+Pentesting/
+├── Enumeration
+├── Vulnerability Assessment
+├── Web Application Testing
+├── Burp Suite Labs
+├── Metasploit Practice
+├── Active Directory Fundamentals
+├── Privilege Escalation
+└── Reporting
+```
+
+### 📁 Encryption & Cryptography
+
+Encryption concepts, hashing, and secure communications.
+
+```text
+Encryption/
+├── Symmetric Encryption
+├── Asymmetric Encryption
+├── Hashing Algorithms
+├── Digital Signatures
+├── Certificates
+├── Public Key Infrastructure
+└── Secure Communication Concepts
+```
+
+### 📁 Mobile Security
+
+Mobile operating system security and device hardening.
+
+```text
+Mobile/
+├── Android Hardening
+├── Mobile Threats
+├── Application Security
+├── Permissions Management
+├── Device Security
+└── Mobile Best Practices
+```
+
+### 📁 Hands-On Labs
+
+Practical exercises and cybersecurity lab environments.
+
+```text
+labs/
+├── Linux Labs
+├── Windows Labs
+├── Docker Labs
+├── Virtual Machines
+├── SSH Configuration
+├── Network Security Labs
+├── TryHackMe Exercises
+└── Hack The Box Exercises
+```
+
+### 📁 Supporting Resources
+
+Documentation and reports included throughout the repository.
+
+```text
+Each learning module contains:
+├── README.md
+├── Notes
+├── Reports
+├── Lab Documentation
+└── Practical Exercises
+```
+
+---
+
 # Focus Areas
 
 | Area                | Description                                  |
